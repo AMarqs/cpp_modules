@@ -1,0 +1,39 @@
+STATEMENTS
+
+C++ provides you with tools which helps you to control the way your program behaves (logic flows) 
+based on how the user interact with your program. Here we will discuss about if-else, 
+switch and goto are three common ways to guide the flow of logic in your code.
+
+
+LOOPS
+
+Loops are an essential concept in programming that allow you to execute a block of code repeatedly 
+until a specific condition is met. In C++, there are three main types of loops: for, while, and do-while.
+
+- For
+
+	A for loop is used when you know the number of times you want to traverse through a block of code. 
+	It consists of an initialization statement, a condition, and an increment/decrement operation.
+
+	for (initialization; condition; increment/decrement) {
+		// block of code to execute
+	}
+
+- While
+
+	A while loop runs as long as a specified condition is true. 
+	The loop checks for the condition before entering the body of the loop.
+
+	while (condition) {
+		// block of code to execute
+		// increment/decrement
+	}
+
+- Do-While Loop
+
+	A do-while loop is similar to a while loop, with the key difference being that 
+	the loop body is executed at least once, even when the condition is false.
+
+	do {
+		// block of code to execute
+	} while (condition);

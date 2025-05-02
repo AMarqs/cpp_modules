@@ -1,0 +1,178 @@
+BASIC OPERATIONS
+----------------
+
+- Addition (+)
+
+	int sum = a + b;
+
+- Subtraction (-)
+
+	int diff = a - b;
+
+- Multiplication (*)
+
+	int product = a * b;
+
+- Division (/)
+
+	int quotient = a / b;
+
+- Modulus (%)
+
+	int remainder = a % b;
+
+- Increment Operator (++): It increments the value of a variable by 1.
+
+	int x = 5;
+	int y = ++x; // x = 6, y = 6
+	int z = x++; // x = 7, z = 6
+
+7. Decrement Operator (--): It decrements the value of a variable by 1.
+
+	int x = 5;
+	int y = --x; // x = 4, y = 4
+	int z = x--; // x = 3, z = 4
+
+
+RELATIONAL OPERATIONS
+---------------------
+
+These operations compare two values and return a boolean value (true/false) depending on the comparison.
+
+- Equal to (==): Returns true if both operands are equal.
+
+	5 == 5 // true
+	3 == 4 // false
+
+- Not equal to (!=): Returns true if operands are not equal.
+
+	5 != 2 // true
+	1 != 1 // false
+
+- Greater than (>): Returns true if the first operand is greater than the second.
+
+	5 > 3 // true
+	2 > 3 // false
+
+- Less than (<): Returns true if the first operand is less than the second.
+
+	3 < 5 // true
+	6 < 5 // false
+
+- Greater than or equal to (>=): Returns true if the first operand is greater than or equal to the second.
+
+	5 >= 5 // true
+	6 >= 2 // true
+	3 >= 4 // false
+
+- Less than or equal to (<=): Returns true if the first operand is less than or equal to the second.
+
+	4 <= 4 // true
+	2 <= 3 // true
+	5 <= 4 // false
+
+
+LOGICAL OPERATORS
+-----------------
+
+Logical operators are used for combining multiple conditions or boolean values.
+
+- AND (&&): Returns true if both operands are true.
+
+	true && true // true
+	true && false // false
+
+- OR (||): Returns true if any one of the operands is true.
+
+	true || false // true
+	false || false // false
+
+- NOT (!): Returns true if the operand is false and vice versa.
+
+	!true // false
+	!false // true
+
+
+BITWISE OPERATORS
+-----------------
+
+- Bitwise AND (&)
+
+	The bitwise AND operation (&) is a binary operation that takes two numbers, compares them bit by bit, 
+	and returns a new number where each bit is set (1) if the corresponding bits in both input numbers are set (1); 
+	otherwise, the bit is unset (0).
+
+	int result = 5 & 3; // result will be 1 (0000 0101 & 0000 0011 = 0000 0001)
+
+- Bitwise OR (|)
+
+	The bitwise OR operation (|) is a binary operation that takes two numbers, compares them bit by bit, 
+	and returns a new number where each bit is set (1) if at least one of the corresponding bits in either input number is set (1); 
+	otherwise, the bit is unset (0).
+
+	int result = 5 | 3; // result will be 7 (0000 0101 | 0000 0011 = 0000 0111)
+
+- Bitwise XOR (^)
+
+	The bitwise XOR (exclusive OR) operation (^) is a binary operation that takes two numbers, compares them bit by bit, 
+	and returns a new number where each bit is set (1) if the corresponding bits in the input numbers are different; 
+	otherwise, the bit is unset (0).
+
+	int result = 5 ^ 3; // result will be 6 (0000 0101 ^ 0000 0011 = 0000 0110)
+
+- Bitwise NOT (~)
+
+	The bitwise NOT operation (~) is a unary operation that takes a single number, 
+	and returns a new number where each bit is inverted (1 becomes 0, and 0 becomes 1).
+
+	int result = ~5; // result will be -6 (1111 1010)
+
+- Bitwise Left Shift (<<)
+
+	The bitwise left shift operation (<<) is a binary operation that takes two numbers, a value and a shift amount, 
+	and returns a new number by shifting the bits of the value to the left by the specified shift amount. 
+	The vacated bits are filled with zeros.
+
+	int result = 5 << 1; // result will be 10 (0000 0101 << 1 = 0000 1010)
+
+- Bitwise Right Shift (>>)
+
+	The bitwise right shift operation (>>) is a binary operation that takes two numbers, a value and a shift amount, 
+	and returns a new number by shifting the bits of the value to the right by the specified shift amount. 
+	The vacated bits are filled with zeros or sign bit depending on the input value being signed or unsigned.
+
+	int result = 5 >> 1; // result will be 2 (0000 0101 >> 1 = 0000 0010)
+
+
+ASSIGNMENT OPERATORS
+--------------------
+
+= : simple assignment
+
+    int x = 5; // x gets the value 5
+
++= : addition assignment
+
+    int x = 5;
+    x += 3; // x gets the value 8 (5 + 3)
+
+-= : subtraction assignment
+
+    int x = 5;
+    x -= 3; // x gets the value 2 (5 - 3)
+
+*= : multiplication assignment
+
+    int x = 5;
+    x *= 3; // x gets the value 15 (5 * 3)
+
+/= : division assignment
+
+    int x = 15;
+    x /= 3; // x gets the value 5 (15 / 3)
+
+%= : modulo assignment
+
+    int x = 7;
+    x %= 3; // x gets the value 1 (7 % 3)
+
