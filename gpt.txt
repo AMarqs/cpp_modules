@@ -1,0 +1,65 @@
+🧠 8. Otros conceptos importantes
+🧼 Destructor virtual
+
+Si usas herencia, siempre pon el destructor como virtual en la clase base:
+
+class Base {
+public:
+    virtual ~Base() {
+        cout << "Destructor de Base\n";
+    }
+};
+
+🧱 Composición
+
+Tener una clase como atributo de otra:
+
+class Motor {
+public:
+    void encender() {
+        cout << "Motor encendido\n";
+    }
+};
+
+class Coche {
+private:
+    Motor motor;
+
+public:
+    void arrancar() {
+        motor.encender();
+    }
+};
+
+🧹 RAII y punteros inteligentes (std::unique_ptr, std::shared_ptr)
+
+Mejor que usar new y delete directamente.
+
+#include <memory>
+
+class Persona {
+public:
+    void hablar() {
+        cout << "Hablo\n";
+    }
+};
+
+int main() {
+    std::unique_ptr<Persona> p = std::make_unique<Persona>();
+    p->hablar();
+}
+
+🧾 RESUMEN VISUAL
+Concepto	Qué hace
+Encapsulamiento	Protege datos, acceso controlado con private/public
+Getters/Setters	Métodos para acceder a datos privados
+Herencia	Clase hija hereda de clase base
+Polimorfismo	Comportamiento distinto usando herencia + punteros
+Sobrecarga	Mismo nombre, distintos parámetros
+Clases anidadas	Clases dentro de clases
+static	Pertenencia a clase, no al objeto
+friend	Acceso a privados desde fuera
+Clase abstracta	No se puede instanciar, tiene métodos virtuales puros
+Interface	Clase abstracta con solo métodos puros
+RAII	Manejo seguro de recursos usando objetos automáticos
+Punteros inteligentes	Alternativa moderna a new/delete
