@@ -96,7 +96,7 @@ You have to implement two classes:
 - Contact
 	- Stands for a phonebook contact.
 	
-In your code, the phonebook must be instantiated as an instance of the PhoneBook class. Same thing for the contacts. Each one of them must be instantiated as an instance of the Contact class. You’re free to design the classes as you like but keep in mind that anything that will always be used inside a class is private, and that anything that can beused outside a class is public.
+In your code, the phonebook must be instantiated as an instance of the PhoneBook class. Same thing for the contacts. Each one of them must be instantiated as an instance of the Contact class. You’re free to design the classes as you like but keep in mind that anything that will always be used inside a class is private, and that anything that can be used outside a class is public.
 
 At program start-up, the phonebook is empty and the user is prompted to enter one of three commands. The program only accepts ADD, SEARCH and EXIT.
 

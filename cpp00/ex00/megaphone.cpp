@@ -8,7 +8,7 @@ int main(int argc, char **argv)
 	if (argc == 1)
 	{
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return (0);
+		return 0;
 	}
 	while (argv[i])
 	{
@@ -16,10 +16,6 @@ int main(int argc, char **argv)
 		while (argv[i][j])
 		{
 			std::cout << static_cast<char>(toupper(argv[i][j]));
-			// if (argv[i][j] >= 'a' && argv[i][j] <= 'z')
-			// 	std::cout << static_cast<char>(argv[i][j] - 32);
-			// else
-			// 	std::cout << static_cast<char>(argv[i][j]);
 			j++;
 		}
 		i++;

@@ -2,13 +2,16 @@
 NAME = phonebook
 
 # Compiler
-CC = g++
+CC = c++
 
 # Flags
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Sources
-SRCS = phonebook.cpp
+SRCS = 	main.cpp \
+		Contact.cpp \
+		PhoneBook.cpp
+
 OBJS = $(SRCS:.cpp=.o)
 
 # Colors
