@@ -19,6 +19,7 @@
 *.a
 
 # EXECUTABLES
+megaphone
 phonebook
 *.exe
 *.out
