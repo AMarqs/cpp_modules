@@ -1,6 +1,8 @@
 #include "PhoneBook.hpp"
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>
+#include <cstring>
 
 PhoneBook::PhoneBook() : total_contacts(0), next_index(0) {}
 PhoneBook::~PhoneBook() {};
@@ -21,51 +23,97 @@ bool is_number(std::string num)
 	return true;
 }
 
+static void remove_tabs(std::string & str)
+{
+	size_t pos = 0;
+
+	pos = str.find_first_not_of("\n\t\f\v ");
+	if (pos != std::string::npos)
+		str = str.substr(pos);
+
+	pos = str.find_last_not_of("\n\t\f\v ");
+	if (pos != std::string::npos)
+		str = str.substr(0, pos + 1);
+
+	for (size_t i = 0; i < str.size(); i++) {
+		if (std::strchr("\n\t\f\v", str[i])) str[i] = ' ';
+	}
+}
+
 void	PhoneBook::add_contact()
 {
 	std::string firstName, lastName, nickname, phoneNumber, secret;
 
 	std::cout << "Fill the contact fields" << std::endl;
+
 	std::cout << "First Name (max 10 characters): ";
 	std::getline(std::cin, firstName);
-	while (firstName.length() > 10)
+	if (std::cin.eof())
+		exit(1);
+	while (firstName.length() > 20)
 	{
 		std::cout << "Maximum 10 characters for First Name" << std::endl;
 		std::cout << "First Name (max 10 characters): ";
 		std::getline(std::cin, firstName);
+		if (std::cin.eof())
+			exit(1);
 	}
+	remove_tabs(firstName);
+
 	std::cout << "Last Name (max 10 characters): ";
 	std::getline(std::cin, lastName);
+	if (std::cin.eof())
+		exit(1);
 	while (lastName.length() > 10)
 	{
 		std::cout << "Maximum 10 characters for Last Name" << std::endl;
 		std::cout << "Last Name (max 10 characters): ";
 		std::getline(std::cin, lastName);
+		if (std::cin.eof())
+			exit(1);
 	}
+	remove_tabs(lastName);
+
 	std::cout << "Nickname (max 10 characters): ";
 	std::getline(std::cin, nickname);
+	if (std::cin.eof())
+		exit(1);
 	while (nickname.length() > 10)
 	{
 		std::cout << "Maximum 10 characters for Nickname" << std::endl;
 		std::cout << "Nickname (max 10 characters): ";
 		std::getline(std::cin, nickname);
+		if (std::cin.eof())
+			exit(1);
 	}
+	remove_tabs(nickname);
+	
 	std::cout << "Phone Number (max 9 numbers): ";
 	std::getline(std::cin, phoneNumber);
+	if (std::cin.eof())
+		exit(1);
 	while (phoneNumber.length() > 9 || !is_number(phoneNumber))
 	{
 		std::cout << "Maximum 9 numbers for Phone Number" << std::endl;
 		std::cout << "Phone Number (max 9 numbers): ";
 		std::getline(std::cin, phoneNumber);
+		if (std::cin.eof())
+			exit(1);
 	}
+
 	std::cout << "Darkest Secret (max 40 characters): ";
 	std::getline(std::cin, secret);
+	if (std::cin.eof())
+		exit(1);
 	while (secret.length() > 40)
 	{
 		std::cout << "Maximum 10 characters for Darkest Secret" << std::endl;
 		std::cout << "Darkest Secret (max 40 characters): ";
 		std::getline(std::cin, secret);
+		if (std::cin.eof())
+			exit(1);
 	}
+	remove_tabs(secret);
 
 	int index;
 	if (total_contacts < 8)
@@ -100,11 +148,15 @@ void	PhoneBook::search_contact()
 
 	std::cout << "Select index to see more contact information:" << std::endl;
 	std::getline(std::cin, input);
+	if (std::cin.eof())
+		exit(1);
 	while (!valid_index(input))
 	{
 		std::cout << "Invalid index !" << std::endl;
 		std::cout << "Select a valid index to see contact information:" << std::endl;
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+			exit(1);
 	}
 	int index = input[0] - '0';
 	if (contacts[index].is_empty())

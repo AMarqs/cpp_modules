@@ -9,15 +9,15 @@ The goal of these modules is to introduce you to Object-Oriented Programming. Th
 
 **Compiling**
 
-- Compile your code with c++ and the flags -Wall -Wextra -Werror
-- Your code should still compile if you add the flag -std=c++98
+- Compile your code with c++ and the flags `-Wall -Wextra -Werror`
+- Your code should still compile if you add the flag `-std=c++98`
 
 **Formatting and naming conventions**
 
-- The exercise directories will be named this way: ex00, ex01, ...  , exn
+- The exercise directories will be named this way: `ex00, ex01, ...  , exn`
 - Name your files, classes, functions, member functions and attributes as required inthe guidelines.
-- Write class names in UpperCamelCaseformat. Files containing class code will always be named according to the class name. For instance:
-ClassName.hpp/ClassName.h, ClassName.cpp, or ClassName.tpp. Then, if you have a header file containing the definition of a class "BrickWall" standing for a brick wall, its name will be BrickWall.hpp.
+- Write class names in **UpperCamelCaseformat**. Files containing class code will always be named according to the class name. For instance:
+`ClassName.hpp`/`ClassName.h`, `ClassName.cpp`, or `ClassName.tpp`. Then, if you have a header file containing the definition of a class "BrickWall" standing for a brick wall, its name will be `BrickWall.hpp`.
 - Unless specified otherwise, every output message must end with a newline character and be displayed to the standard output.
 - Goodbye Norminette! No coding style is enforced in the C++ modules. You can follow your favorite one. But keep in mind that code your peer evaluators can’t understand is code they can’t grade. Do your best to write clean and readable code.
 
@@ -46,6 +46,7 @@ You are not coding in C anymore. Time to C++! Therefore:
 [!WARNING]
 > Regarding the Makefile for C++ projects, the same rules as in C apply (see the Norm chapter about the Makefile).
 
+---
 
 ## Módulo 0
 
@@ -141,3 +142,10 @@ You start to recreate the Account.cpp file. In only a few minutes, you code a fe
 
 [!NOTE]
 > The order in which the destructors are called may differ depending on your compiler/operating system. So your destructors may be called in a reverse order.
+
+---
+
+## Module 01
+
+Memory allocation, pointers to members, references and switch statements.
+

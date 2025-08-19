@@ -6,12 +6,8 @@
 
 class PhoneBook
 {
-	private:
-		Contact	contacts[8];
-		int		total_contacts;
-		int		next_index;
-	
 	public:
+
 		// Constructor
 		PhoneBook();
 
@@ -21,6 +17,13 @@ class PhoneBook
 
 		// Destructor
 		~PhoneBook();
+
+	private:
+	
+		Contact	contacts[8];
+		int		total_contacts;
+		int		next_index;
+	
 };
 
 #endif

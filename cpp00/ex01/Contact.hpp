@@ -5,14 +5,8 @@
 
 class Contact
 {
-	private:
-		std::string	firstName;
-		std::string lastName;
-		std::string nickname;
-		std::string phoneNumber;
-		std::string secret;
-
 	public:
+
 		// Constructor
 		Contact();
 
@@ -29,9 +23,16 @@ class Contact
 		void	display_contact_resume(int index) const;
 		bool	is_empty() const;
 
-		// ME HACE FALTA DESTRUCTOR??? EN TEORIA NO
 		// Destructor
 		~Contact();
+
+	private:
+
+		std::string	firstName;
+		std::string lastName;
+		std::string nickname;
+		std::string phoneNumber;
+		std::string secret;
 };
 
 #endif

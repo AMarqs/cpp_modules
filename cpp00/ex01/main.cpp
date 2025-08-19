@@ -50,7 +50,9 @@ int main()
 		std::cout << "Select an option (ADD, SEARCH, EXIT): ";
 		std::getline(std::cin, option);
 
-		if (option == "ADD")
+		if (std::cin.eof())
+			exit(1);
+		else if (option == "ADD")
 			phoneBook.add_contact();
 		else if (option == "SEARCH")
 			phoneBook.display_contacts();
