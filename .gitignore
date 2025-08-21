@@ -19,10 +19,16 @@
 *.a
 
 # EXECUTABLES
-megaphone
-phonebook
 *.exe
 *.out
+
+# cpp00
+megaphone
+phonebook
+account
+# cpp01
+zombie
+horde
 
 # Compile Results
 *.cmd
