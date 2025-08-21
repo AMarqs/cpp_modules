@@ -65,8 +65,10 @@ std::cin >> VARIABLE;
 
 Operadores: vídeo 10, minuto 1:52
 
-Operador ternario ?????
+Operador ternario
 x ? y : z
+variable = (condition) ? expressionTrue : expressionFalse;
+
 
 ## Quitar un bloque de la compilación
 

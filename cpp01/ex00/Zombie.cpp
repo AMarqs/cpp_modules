@@ -12,7 +12,7 @@ void Zombie::announce( void )
 	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-void Zombie::create( std::string zombie_name )
+void Zombie::create( std::string name )
 {
-	name = zombie_name;
+	this->name = name;
 }
