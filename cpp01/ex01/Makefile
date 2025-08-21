@@ -1,5 +1,5 @@
 # Name
-NAME = zombie
+NAME = horde
 
 # Compiler
 CC = c++
