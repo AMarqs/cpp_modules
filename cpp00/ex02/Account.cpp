@@ -1,15 +1,11 @@
-#include "Account.hpp"
 #include <iostream>
 #include <ctime>
-
-// Static atributes initialitation
+#include "Account.hpp"
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
-
-// Constructor
 
 Account::Account( int initial_deposit )
 {
@@ -25,22 +21,16 @@ Account::Account( int initial_deposit )
 	std::cout << " index:" << _accountIndex << ";amount:" << _amount << ";created" << std::endl;
 }
 
-// Destructor
-
 Account::~Account() 
 {
 	_displayTimestamp();
 	std::cout << " index:" << _accountIndex << ";amount:" << _amount << ";closed" << std::endl;
 }
 
-// Getters
-
 int	Account::getNbAccounts(void) { return _nbAccounts; }
 int	Account::getTotalAmount(void) { return _totalAmount; }
 int	Account::getNbDeposits(void) { return _totalNbDeposits; }
 int	Account::getNbWithdrawals(void) { return _totalNbWithdrawals; }
-
-// Actions
 
 void	Account::makeDeposit( int deposit )
 {
@@ -96,8 +86,6 @@ bool	Account::makeWithdrawal( int withdrawal )
 
 	return true;
 }
-
-// Display
 
 void	Account::_displayTimestamp( void )
 {

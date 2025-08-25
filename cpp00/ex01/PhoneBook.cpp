@@ -1,8 +1,8 @@
-#include "PhoneBook.hpp"
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
 #include <cstring>
+#include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook() : total_contacts(0), next_index(0) {}
 PhoneBook::~PhoneBook() {};
@@ -46,42 +46,42 @@ void	PhoneBook::add_contact()
 
 	std::cout << "Fill the contact fields" << std::endl;
 
-	std::cout << "First Name (max 10 characters): ";
+	std::cout << "First Name (max 20 characters): ";
 	std::getline(std::cin, firstName);
 	if (std::cin.eof())
 		exit(1);
 	while (firstName.length() > 20)
 	{
-		std::cout << "Maximum 10 characters for First Name" << std::endl;
-		std::cout << "First Name (max 10 characters): ";
+		std::cout << "Maximum 20 characters for First Name" << std::endl;
+		std::cout << "First Name (max 20 characters): ";
 		std::getline(std::cin, firstName);
 		if (std::cin.eof())
 			exit(1);
 	}
 	remove_tabs(firstName);
 
-	std::cout << "Last Name (max 10 characters): ";
+	std::cout << "Last Name (max 20 characters): ";
 	std::getline(std::cin, lastName);
 	if (std::cin.eof())
 		exit(1);
-	while (lastName.length() > 10)
+	while (lastName.length() > 20)
 	{
-		std::cout << "Maximum 10 characters for Last Name" << std::endl;
-		std::cout << "Last Name (max 10 characters): ";
+		std::cout << "Maximum 20 characters for Last Name" << std::endl;
+		std::cout << "Last Name (max 20 characters): ";
 		std::getline(std::cin, lastName);
 		if (std::cin.eof())
 			exit(1);
 	}
 	remove_tabs(lastName);
 
-	std::cout << "Nickname (max 10 characters): ";
+	std::cout << "Nickname (max 20 characters): ";
 	std::getline(std::cin, nickname);
 	if (std::cin.eof())
 		exit(1);
-	while (nickname.length() > 10)
+	while (nickname.length() > 20)
 	{
-		std::cout << "Maximum 10 characters for Nickname" << std::endl;
-		std::cout << "Nickname (max 10 characters): ";
+		std::cout << "Maximum 20 characters for Nickname" << std::endl;
+		std::cout << "Nickname (max 20 characters): ";
 		std::getline(std::cin, nickname);
 		if (std::cin.eof())
 			exit(1);
@@ -107,7 +107,7 @@ void	PhoneBook::add_contact()
 		exit(1);
 	while (secret.length() > 40)
 	{
-		std::cout << "Maximum 10 characters for Darkest Secret" << std::endl;
+		std::cout << "Maximum 40 characters for Darkest Secret" << std::endl;
 		std::cout << "Darkest Secret (max 40 characters): ";
 		std::getline(std::cin, secret);
 		if (std::cin.eof())

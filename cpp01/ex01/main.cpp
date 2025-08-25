@@ -1,3 +1,5 @@
+#include <iostream>
+#include <string>
 #include "Zombie.hpp"
 
 int main()
