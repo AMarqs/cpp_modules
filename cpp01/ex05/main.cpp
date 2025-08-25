@@ -5,19 +5,19 @@ int main()
 {
 	Harl harl;
 
-	std::cout << "Debug level: ";
+	std::cout << "DEBUG LEVEL -> ";
 	harl.complain("DEBUG");
 
-	std::cout << "Info level: ";
+	std::cout << std::endl << "INFO LEVEL -> ";
 	harl.complain("INFO");
 
-	std::cout << "Warning level: ";
+	std::cout << std::endl << "WARNING LEVEL -> ";
 	harl.complain("WARNING");
 
-	std::cout << "Error level: ";
+	std::cout << std::endl << "ERROR LEVEL -> ";
 	harl.complain("ERROR");
 
-	std::cout << "Worng level: ";
+	std::cout << std::endl << "WRONG LEVEL -> ";
 	harl.complain("wefgwtrbws");
 
 	return 0;
