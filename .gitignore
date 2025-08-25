@@ -1,12 +1,10 @@
 ### Visual Code ###
 .vscode/
 
-
 ### System Files ###
 
 # General
 .DS_Store
-
 
 ### C ###
 
@@ -22,10 +20,16 @@
 *.exe
 *.out
 
+# Compile Results
+*.cmd
+*.tmp
+.tmp_versions/
+
 # cpp00
 megaphone
 phonebook
 account
+
 # cpp01
 zombie
 horde
@@ -33,8 +37,4 @@ brain
 weapon
 replace
 harl
-
-# Compile Results
-*.cmd
-*.tmp
-.tmp_versions/
+harlFilter
