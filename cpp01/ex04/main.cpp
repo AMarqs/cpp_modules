@@ -14,9 +14,9 @@ int main(int argc, char **argv)
 	std::string filename = argv[1];
 	std::string find = argv[2];
 	std::string replace = argv[3];
-	if (find.empty()) 
+	if (find.empty() || replace.empty()) 
 	{
-		std::cout << "Error: Empty string to find" << std::endl;
+		std::cout << "Error: Empty string" << std::endl;
 		return 1;
 	}
 
@@ -25,9 +25,9 @@ int main(int argc, char **argv)
 	std::string line;
 	if (!name)
 	{
-		std::cout << "Error opening file" << std::endl;
+		std::cout << "Error opening file: " << filename << std::endl;
 		name.close();
-		return EXIT_FAILURE;
+		exit(EXIT_FAILURE);
 	}
 
 	while (std::getline (name, line))
@@ -52,7 +52,7 @@ int main(int argc, char **argv)
 	{
 		std::cout << "Error creating new file" << std::endl;
 		outfile.close();
-		return EXIT_FAILURE;
+		exit(EXIT_FAILURE);
 	}
 	outfile << result;
 	outfile.close();
