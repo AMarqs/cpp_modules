@@ -81,7 +81,7 @@ Divide el código de tu clase en dos archivos. El archivo de cabecera (.hpp/.h) 
 
 ### CPP00
 
-Espacios de nombres, clases, funciones miembro, flujos stdio, listas de inicialización, static, const, y algunas otras cosas básicas.
+Namespaces, clases, funciones miembro, flujos stdio, listas de inicialización, static, const, y algunas otras cosas básicas.
 
 ### CPP01
 
