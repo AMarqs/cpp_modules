@@ -7,7 +7,7 @@ Ad-hoc polymorphism, operator overloading and the Orthodox Canonical class form
 ## Exercise 00: My First Class in Orthodox Canonical Form
 
 | Exercise : 00 |
-|-------------|
+|---------------|
 | My First Class in Orthodox Canonical Form |
 | Turn-in directory: ex00/ |
 | Files to turn in: Makefile, main.cpp, Fixed.{h, hpp}, Fixed.cpp |
@@ -87,7 +87,7 @@ $>
 ## Exercise 01: Towards a more useful fixed-point number class
 
 | Exercise : 01 |
-|-------------|
+|---------------|
 | Towards a more useful fixed-point number class |
 | Turn-in directory: ex01/ |
 | Files to turn in: Makefile, main.cpp, Fixed.{h, hpp}, Fixed.cpp |

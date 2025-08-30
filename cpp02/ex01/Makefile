@@ -1,5 +1,5 @@
 # Name
-NAME = fixed
+NAME = fixed1
 
 # Compiler
 CC = c++

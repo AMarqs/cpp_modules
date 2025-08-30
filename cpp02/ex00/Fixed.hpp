@@ -6,7 +6,7 @@ class Fixed
 	private:
 
 		int _value;
-		static const int _bits = 8;
+		static const int _fracBits = 8;
 
 	public:
 
