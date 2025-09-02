@@ -7,10 +7,10 @@ class ClapTrap
 {
 	private:
 
-		std::string	_name;
-		int			_hit;
-		int			_energy;
-		int			_damage;
+		std::string		_name;
+		unsigned int	_hit;
+		unsigned int	_energy;
+		unsigned int	_damage;
 
 	public:
 
