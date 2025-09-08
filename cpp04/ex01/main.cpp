@@ -12,6 +12,7 @@ int main()
 
 	delete j; // should not create a leak
 	delete i;
+	
 	// ...
 
 	return 0;
