@@ -3,9 +3,14 @@
 
 #include <string>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
-class Dog : public Animal
+class Dog : virtual public Animal
 {
+	private:
+
+		Brain* _brain;
+
 	public:
 
 		Dog();
@@ -14,6 +19,9 @@ class Dog : public Animal
 		virtual ~Dog();
 
 		virtual void	makeSound() const;
+
+		const std::string	getBrain(int index) const;
+		void	setBrain(int index, const std::string &idea);
 };
 
 #endif

@@ -7,9 +7,8 @@ Animal::Animal(const Animal& copy) : _type(copy._type) { std::cout << "[Animal] 
 Animal& Animal::operator=(const Animal& copy)
 {
 	std::cout << "[Animal] Copy assignment operator called" << std::endl;
-	if (this != &copy) {
+	if (this != &copy)
 		_type = copy._type;
-	}
 	return *this;
 }
 Animal::~Animal() { std::cout << "[Animal] Destructor called" << std::endl; }

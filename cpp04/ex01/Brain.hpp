@@ -7,7 +7,7 @@ class Brain
 {
 	protected:
 
-		std::string ideas[100];
+		std::string _ideas[100];
 
 	public:
 
@@ -16,8 +16,8 @@ class Brain
 		Brain& operator=(const Brain& copy);
 		~Brain();
 		
-		std::string	getIdea(int index) const;
-		void	setIdea(int index, std::string& idea); 
+		const std::string	getIdea(int index) const;
+		void	setIdea(int index, const std::string& idea); 
 };
 
 #endif
