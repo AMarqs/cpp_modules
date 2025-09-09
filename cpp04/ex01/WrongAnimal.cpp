@@ -6,10 +6,9 @@ WrongAnimal::WrongAnimal(std::string type) : _type(type) { std::cout << "[WrongA
 WrongAnimal::WrongAnimal(const WrongAnimal& copy) : _type(copy._type) { std::cout << "[WrongAnimal] Copy constructor called" << std::endl; }
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& copy)
 {
-	std::cout << "[WrongAnimal] Copy assignment operator called" << std::endl;
-	if (this != &copy) {
+	if (this != &copy)
 		_type = copy._type;
-	}
+	std::cout << "[WrongAnimal] Copy assignment operator called" << std::endl;
 	return *this;
 }
 WrongAnimal::~WrongAnimal() { std::cout << "[WrongAnimal] Destructor called" << std::endl; }
