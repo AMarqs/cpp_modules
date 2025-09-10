@@ -7,7 +7,7 @@ Polimorfismo por subtipo, clases abstractas e interfaces
 ## Ejercicio 00: Polimorfismo
 
 | Ejercicio : 00 |
-|-----------------|
+|----------------|
 | Polimorfismo |
 | Directorio de entrega: ex00/ |
 | Ficheros a entregar: Makefile, main.cpp, *.cpp, *.{h, hpp} |
@@ -57,7 +57,7 @@ Implementa y entrega más pruebas de las dadas arriba.
 ## Ejercicio 01: I don’t want to set the world on fire
 
 | Ejercicio : 01 |
-|-----------------|
+|----------------|
 | I don’t want to set the world on fire |
 | Directorio de entrega: ex01/ |
 | Ficheros a entregar: Ficheros del ejercicio anterior + *.cpp, *.{h, hpp} |
@@ -98,7 +98,7 @@ Implementa y entrega más pruebas de las dadas arriba.
 ## Ejercicio 02: Clase abstracta
 
 | Ejercicio : 02 |
-|-----------------|
+|----------------|
 | Clase abstracta |
 | Directorio de entrega: ex02/ |
 | Ficheros a entregar: Ficheros del ejercicio anterior + *.cpp, *.{h, hpp} |
@@ -115,7 +115,7 @@ Si lo deseas, puedes actualizar el nombre de la clase añadiendo un prefijo A a 
 ## Ejercicio 03: Interfaz y repaso
 
 | Ejercicio : 03 |
-|-----------------|
+|----------------|
 | Interfaz y repaso |
 | Directorio de entrega: ex03/ |
 | Ficheros a entregar: Makefile, main.cpp, *.cpp, *.{h, hpp} |

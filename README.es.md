@@ -92,7 +92,13 @@ Asignación de memoria, punteros a miembros, referencias y declaraciones switch.
 Polimorfismo ad-hoc, sobrecarga de operadores y la forma canónica ortodoxa de clases.
 
 ### CPP03
+
+Herencia
+
 ### CPP04
+
+Polimorfismo por subtipo, clases abstractas e interfaces
+
 ### CPP05
 ### CPP06
 ### CPP07

@@ -92,7 +92,13 @@ Memory allocation, pointers to members, references and switch statements.
 Ad-hoc polymorphism, operator overloading and the Orthodox Canonical class form.
 
 ### CPP03
+
+Inheritance
+
 ### CPP04
+
+Subtype Polymorphism, Abstract Classes, and Interfaces
+
 ### CPP05
 ### CPP06
 ### CPP07
