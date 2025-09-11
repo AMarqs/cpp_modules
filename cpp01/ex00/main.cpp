@@ -2,8 +2,7 @@
 
 int main()
 {
-	Zombie	test;
-	test.create("Test");
+	Zombie	test("Test");
 	test.announce();
 
 	randomChump("Random");

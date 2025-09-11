@@ -3,8 +3,5 @@
 
 Zombie* newZombie( std::string name )
 {
-	Zombie *zombie = new Zombie();
-	
-	zombie->create(name);
-	return zombie;
+	return new Zombie(name);
 }
