@@ -3,6 +3,28 @@
 #include <fstream>
 #include <cstdlib>
 
+void	replace_file(std::string filename, std::string find, std::string replace, std::string file)
+{
+	std::string result = file;
+	size_t pos = 0;
+	while ((pos = file.find(find, pos)) != std::string::npos)
+	{
+		result = result.substr(0, pos) + replace + result.substr(pos + find.size());
+    	pos += replace.size();
+	}
+	
+	std::string new_filename = filename + ".replace";
+	std::ofstream outfile(new_filename.c_str());
+	if (!outfile)
+	{
+		std::cout << "Error creating new file" << std::endl;
+		outfile.close();
+		exit(EXIT_FAILURE);
+	}
+	outfile << result;
+	outfile.close();
+}
+
 int main(int argc, char **argv)
 {
 	if (argc != 4)
@@ -37,24 +59,7 @@ int main(int argc, char **argv)
 			file += "\n";
 	}
 	name.close();
+	replace_file(filename, find, replace, file);
 
-	std::string result = file;
-	size_t pos = 0;
-	while ((pos = file.find(argv[2], pos)) != std::string::npos)
-	{
-		result = result.substr(0, pos) + replace + result.substr(pos + find.size());
-    	pos += replace.size();
-	}
-	
-	std::string new_filename = filename + ".replace";
-	std::ofstream outfile(new_filename.c_str());
-	if (!outfile)
-	{
-		std::cout << "Error creating new file" << std::endl;
-		outfile.close();
-		exit(EXIT_FAILURE);
-	}
-	outfile << result;
-	outfile.close();
 	return 0;
 }
