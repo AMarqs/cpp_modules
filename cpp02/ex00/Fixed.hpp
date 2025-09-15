@@ -11,9 +11,9 @@ class Fixed
 	public:
 
 		Fixed(); 								// Default constructor
+		~Fixed(); 								// Destructor
 		Fixed(const Fixed& other); 				// Copy constructor
 		Fixed& operator=(const Fixed& other); 	// Copy assignment operator
-		~Fixed(); 								// Destructor
 
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
