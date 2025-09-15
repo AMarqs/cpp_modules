@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Point.hpp"
 
-Fixed area(Point A, Point B, Point C)
+Fixed area(Point const A, Point const B, Point const C)
 {
 	Fixed	xA = A.getX(), yA = A.getY();
 	Fixed	xB = B.getX(), yB = B.getY();
