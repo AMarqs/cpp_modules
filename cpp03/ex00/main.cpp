@@ -35,7 +35,6 @@ int main()
 	R.takeDamage(10);
     R.beRepaired(5);
 	
-
 	std::cout << std::endl;
 
 	return 0;
