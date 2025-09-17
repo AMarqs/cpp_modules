@@ -4,47 +4,50 @@
 
 DiamondTrap::DiamondTrap() : ClapTrap("Diamond_clap_name"), ScavTrap(), FragTrap()
 {
+	std::cout << "DiamondTrap default constructor called" << std::endl;
 	_name = "Diamonymous";
 	_hit = FragTrap::_hit;
 	_energy = ScavTrap::_energy;
 	_damage = FragTrap::_damage;
-	std::cout << "Diamond default constructor called" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
 {
+	std::cout << "DiamondTrap constructor called" << std::endl;
 	_name = name;
 	_hit = FragTrap::_hit;
 	_energy = ScavTrap::_energy;
 	_damage = FragTrap::_damage;
-	std::cout << "Diamond constructor called" << std::endl;
 }
+
+DiamondTrap::~DiamondTrap()
+{ std::cout << "DiamondTrap default destructor called" << std::endl; }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& copy) : ClapTrap(copy), ScavTrap(copy), FragTrap(copy)
 {
+	std::cout << "DiamondTrap copy constructor called" << std::endl;
 	*this = copy;
-	std::cout << "Diamond copy constructor called" << std::endl;
 }
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& copy)
 {
-	std::cout << "Diamond copy assignment operator called" << std::endl;
+	std::cout << "DiamondTrap copy assignment operator called" << std::endl;
 	if (this != &copy)
-		ClapTrap::operator=(copy);
+	{
+		_name = copy._name;
+		_hit = copy._hit;
+		_energy = copy._energy;
+		_damage = copy._damage;
+	}
 	return *this;
 }
 
-DiamondTrap::~DiamondTrap()
-{ std::cout << "Diamond default destructor called" << std::endl; }
-
 void DiamondTrap::attack(const std::string& target)
 {
-	if (_hit == 0 && _energy == 0)
-		std::cout << "Diamond " << _name << " can't attack - 0 hit and energy points!" << std::endl;
-	else if (_hit == 0)
-		std::cout << "Diamond " << _name << " can't attack - 0 hit points!" << std::endl;
+	if (_hit == 0)
+		std::cout << "DiamondTrap " << _name << " can't attack because is dead!" << std::endl;
 	else if (_energy == 0)
-		std::cout << "Diamond " << _name << " can't attack - 0 energy points!" << std::endl;
+		std::cout << "DiamondTrap " << _name << " can't attack because it doesn't have energy points!" << std::endl;
 	else
 		ScavTrap::attack(target);
 }
