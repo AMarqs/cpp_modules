@@ -2,6 +2,7 @@
 #include "Brain.hpp"
 
 Brain::Brain() { std::cout << "[Brain] Default constructor called" << std::endl; }
+Brain::~Brain() { std::cout << "[Brain] Destructor called" << std::endl; }
 Brain::Brain(const Brain& copy)
 {
 	std::cout << "[Brain] Copy constructor called" << std::endl;
@@ -15,7 +16,6 @@ Brain& Brain::operator=(const Brain& copy)
 			_ideas[i] = copy._ideas[i];
 	return *this;
 }
-Brain::~Brain() { std::cout << "[Brain] Destructor called" << std::endl; }
 
 const std::string	Brain::getIdea(int index) const
 {

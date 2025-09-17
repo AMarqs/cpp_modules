@@ -6,6 +6,11 @@ Cat::Cat() : AAnimal("Cat")
 	std::cout << "[Cat] Default constructor called" << std::endl;
 	_brain = new Brain();
 }
+Cat::~Cat()
+{
+	std::cout << "[Cat] Destructor called" << std::endl;
+	delete _brain;
+}
 Cat::Cat(const Cat& copy) : AAnimal(copy)
 {
 	std::cout << "[Cat] Copy constructor called" << std::endl;
@@ -21,11 +26,6 @@ Cat& Cat::operator=(const Cat& copy)
 		_brain = new Brain(*copy._brain);
 	}
 	return *this;
-}
-Cat::~Cat()
-{
-	std::cout << "[Cat] Destructor called" << std::endl;
-	delete _brain;
 }
 
 void	Cat::makeSound() const

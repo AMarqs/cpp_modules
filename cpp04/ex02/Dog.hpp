@@ -14,9 +14,9 @@ class Dog : virtual public AAnimal
 	public:
 
 		Dog();
+		virtual ~Dog();
 		Dog(const Dog& copy);
 		Dog& operator=(const Dog& copy);
-		virtual ~Dog();
 
 		virtual void	makeSound() const;
 
