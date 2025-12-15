@@ -100,6 +100,9 @@ Inheritance
 Subtype Polymorphism, Abstract Classes, and Interfaces
 
 ### CPP05
+
+Repetition and Exceptions
+
 ### CPP06
 ### CPP07
 ### CPP08
