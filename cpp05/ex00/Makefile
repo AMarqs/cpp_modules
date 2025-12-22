@@ -1,5 +1,5 @@
 # Name
-NAME = 
+NAME = bureau
 
 # Compiler
 CC = c++
@@ -8,7 +8,8 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Sources
-SRCS = 	
+SRCS = 	main.cpp \
+		Bureaucrat.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
