@@ -4,10 +4,10 @@
 
 int main()
 {
-    std::cout << "----------------------------------" << std::endl;
-    std::cout << "---------- FORM CREATION ---------" << std::endl;
-    std::cout << "----------------------------------" << std::endl;
-    std::cout << "CORRECT" << std::endl;
+	std::cout << "----------------------------------" << std::endl;
+	std::cout << "---------- FORM CREATION ---------" << std::endl;
+	std::cout << "----------------------------------" << std::endl;
+	std::cout << "CORRECT" << std::endl;
 	try
 	{
 		Form a("A", 50, 25);
@@ -37,17 +37,17 @@ int main()
 	{
 		std::cout << "Exception Low: " << e.what() << std::endl;
 	}
-    std::cout << "---------------------------------" << std::endl;
-    std::cout << "---------- FORM SIGNING ---------" << std::endl;
-    std::cout << "---------------------------------" << std::endl;
-    Form form("Form", 50, 25);
-    std::cout << "CORRECT" << std::endl;
+	std::cout << "---------------------------------" << std::endl;
+	std::cout << "---------- FORM SIGNING ---------" << std::endl;
+	std::cout << "---------------------------------" << std::endl;
+	Form form("Form", 50, 25);
+	std::cout << "CORRECT" << std::endl;
 	try
 	{
 		Bureaucrat b1("Bureaucrat_1", 30);
-        std::cout << "Before signing: " << form << std::endl;
-        b1.signForm(form);
-        std::cout << "After signing: " << form << std::endl;
+		std::cout << "Before signing: " << form << std::endl;
+		b1.signForm(form);
+		std::cout << "After signing: " << form << std::endl;
 	}
 	catch (std::exception &e)
 	{
@@ -58,7 +58,7 @@ int main()
 	try
 	{
 		Bureaucrat b2("Bureaucrat_2", 100);
-        b2.signForm(form);
+		b2.signForm(form);
 	}
 	catch (std::exception &e)
 	{
@@ -70,20 +70,20 @@ int main()
 	try
 	{
 		Form f1("Form_1", 100, 75);
-        Bureaucrat signer("Signer", 50);
-        signer.signForm(f1);
-        std::cout << "Form_1: " << f1 << std::endl;
+		Bureaucrat signer("Signer", 50);
+		signer.signForm(f1);
+		std::cout << "Form_1: " << f1 << std::endl;
 
-        Form copy(f1);
-        std::cout << "Copy: " << copy << std::endl;
+		Form copy(f1);
+		std::cout << "Copy: " << copy << std::endl;
 
-        Form assigned("Form_2", 150, 150);
-        assigned = f1;
-        std::cout << "Assigned: " << assigned << std::endl;
-    }
+		Form assigned("Form_2", 150, 150);
+		assigned = f1;
+		std::cout << "Assigned: " << assigned << std::endl;
+	}
 	catch (std::exception &e)
 	{
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
-    return 0;
+	return 0;
 }
