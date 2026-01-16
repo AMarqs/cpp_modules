@@ -396,3 +396,223 @@ La composición es más flexible que la herencia y debe preferirse cuando la rel
 
 ---
 
+## CPP05: Repetición y Excepciones
+
+### Exception Handling (Manejo de Excepciones)
+Sistema para manejar errores de forma controlada usando `try`, `catch` y `throw`. Permite que el programa continúe funcionando cuando ocurre un error en lugar de terminar abruptamente:
+
+```cpp
+try {
+    Bureaucrat b("Bob", 0);  // Grado inválido
+    b.incrementGrade();
+} catch (std::exception& e) {
+    std::cout << "Error: " << e.what() << std::endl;
+}
+```
+
+**¿Por qué usar excepciones?** Son más limpias que códigos de error porque separan la lógica normal del manejo de errores.
+
+### Custom Exception Classes
+Crear clases de excepción personalizadas heredando de `std::exception`:
+
+```cpp
+class Bureaucrat
+{
+    public:
+        class GradeTooHighException : public std::exception
+        {
+            public:
+                const char* what() const throw()
+                {
+                    return "Grade too high!";
+                }
+        };
+        
+        class GradeTooLowException : public std::exception
+        {
+            public:
+                const char* what() const throw()
+                {
+                    return "Grade too low!";
+                }
+        };
+};
+```
+
+**Ventaja**: Permite distinguir entre diferentes tipos de errores y manejarlos específicamente.
+
+### Abstract Base Classes con Virtual Puras
+Evolución natural de CPP04. Uso de clases base abstractas que no pueden instanciarse:
+
+```cpp
+class AForm  // 'A' prefix indica Abstract
+{
+    private:
+        const std::string _name;
+        bool _signed;
+        const int _gradeToSign;
+        const int _gradeToExecute;
+        
+    public:
+        virtual void execute(Bureaucrat const& executor) const = 0;  // Pura virtual
+        virtual ~AForm() { }  // Destructor virtual obligatorio
+};
+```
+
+### Concrete Implementations
+Clases concretas que implementan las funciones virtuales puras de la clase base:
+
+```cpp
+class ShrubberyCreationForm : public AForm
+{
+    public:
+        void execute(Bureaucrat const& executor) const
+        {
+            // Validar primero
+            if (!getSigned() || executor.getGrade() > getExecGrade())
+                throw AForm::GradeTooLowException();
+                
+            // Crear archivo con árboles ASCII
+            std::ofstream file(_target + "_shrubbery");
+            file << "ASCII trees here" << std::endl;
+        }
+};
+```
+
+### Factory Pattern (Patrón Fábrica)
+Patrón de diseño para crear objetos sin especificar la clase exacta. El `Intern` implementa esto usando **arrays de punteros a función**:
+
+```cpp
+class Intern
+{
+    private:
+        static const std::string _formNames[3];
+        AForm* createShrubbery(const std::string& target) const;
+        AForm* createRobotomy(const std::string& target) const;
+        AForm* createPresidential(const std::string& target) const;
+        
+    public:
+        AForm* makeForm(const std::string& formName, const std::string& target) const;
+};
+
+AForm* Intern::makeForm(const std::string& formName, const std::string& target) const
+{
+    // Array de punteros a función (solución elegante)
+    AForm* (Intern::*formCreators[3])(const std::string& target) const = {
+        &Intern::createShrubbery,
+        &Intern::createRobotomy,
+        &Intern::createPresidential
+    };
+
+    for (int i = 0; i < 3; i++) {
+        if (formName == _formNames[i]) {
+            return (this->*formCreators[i])(target);  // Llamada a través del puntero
+        }
+    }
+    return NULL;
+}
+```
+
+**Beneficio**: Centraliza la creación de objetos y evita largas cadenas de if/else. Es escalable y mantenible.
+
+### Validation and Error Checking
+Validación sistemática de parámetros y estados antes de ejecutar operaciones:
+
+```cpp
+void Bureaucrat::signForm(AForm& form) const
+{
+    try {
+        form.beSigned(*this);
+        std::cout << _name << " signed " << form.getName() << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << _name << " couldn't sign " << form.getName() 
+                  << " because " << e.what() << std::endl;
+    }
+}
+```
+
+### Const Correctness Avanzado
+Uso extensivo de `const` para garantizar que las funciones no modifiquen el estado cuando no deben:
+
+```cpp
+std::string getName() const;                    // No modifica el objeto
+void signForm(AForm& form) const;               // No modifica el Bureaucrat
+void execute(Bureaucrat const& executor) const; // No modifica ni Form ni Bureaucrat
+```
+
+### Forward Declarations
+Declarar clases antes de definirlas para resolver dependencias circulares:
+
+```cpp
+// En Bureaucrat.hpp
+class AForm;  // Forward declaration
+
+class Bureaucrat
+{
+    public:
+        void signForm(AForm& form) const;
+        void executeForm(AForm const& form) const;
+};
+```
+
+Esto evita incluir headers innecesariamente y reduce tiempos de compilación.
+
+### File Operations (C++98 style)
+Operaciones básicas con archivos para `ShrubberyCreationForm`:
+
+```cpp
+#include <fstream>
+
+std::ofstream file(filename.c_str());  // .c_str() necesario en C++98
+if (file.is_open()) {
+    file << "Content here" << std::endl;
+    file.close();
+}
+```
+
+### Random Number Generation (C++98 style)
+Generación de números aleatorios para `RobotomyRequestForm`:
+
+```cpp
+#include <cstdlib>
+#include <ctime>
+
+srand(time(NULL));  // Inicializar semilla una vez
+if (rand() % 2) {   // 50% probabilidad
+    std::cout << target << " has been robotomized successfully!" << std::endl;
+} else {
+    std::cout << "The robotomy on " << target << " failed!" << std::endl;
+}
+```
+
+### Exception Class Design
+**Regla importante**: Las clases de excepción NO necesitan seguir la Orthodox Canonical Form. Solo necesitan implementar `what()` y heredar correctamente:
+
+```cpp
+class MyException : public std::exception
+{
+    public:
+        const char* what() const throw() { return "My error message"; }
+        // No necesita constructor de copia, operador=, etc.
+};
+```
+
+### RAII y Exception Safety
+Aunque no se implementa completamente en CPP05, es importante entender que las excepciones requieren manejo cuidadoso de recursos:
+
+```cpp
+// Siempre limpiar recursos en caso de excepción
+AForm* form = intern.makeForm("robotomy request", "target");
+try {
+    bureaucrat.executeForm(*form);
+} catch (...) {
+    delete form;  // Limpiar incluso si hay excepción
+    throw;        // Re-lanzar la excepción
+}
+delete form;
+```
+
+**Lección clave**: CPP05 enseña que el manejo robusto de errores es fundamental en programas reales. Las excepciones, combinadas con herencia y polimorfismo, crean sistemas flexibles y mantenibles.
+
+---
+
